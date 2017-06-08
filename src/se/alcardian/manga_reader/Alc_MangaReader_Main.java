@@ -12,9 +12,22 @@ public class Alc_MangaReader_Main {
 	public static void main(String[] args) {
 		String location = "E:\\MangaReader\\";
 		
-		for(String x:args){
-			downloadChapters(x, location, 100);
+		if(args != null && args.length != 0){	// Should react to length...
+			for(String x:args){
+				downloadChapters(x, location, 100);
+			}
+		}else{
+			System.out.println("No string :(");
+			System.out.println("Running GUI :)");
+			runGUI();
 		}
+		
+	}
+	
+	static void runGUI(){
+		AMR_Frame alcFrame = new AMR_Frame();
+		alcFrame.setVisible(true);
+		//alcFrame.setLocation(x, y); // x,y the windows location on screen
 	}
 	
 	public static void downloadChapters(String url, String savePath, int delay){
